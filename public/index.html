@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Project_node</title>
+
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./main.css" />
+
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="message.js" defer></script>
+
+</head>
+
+<body>
+    <div id="app" class="d-flex flex-column justify-content-between">
+        <header>
+        </header>
+
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="text-center mb-0">Formulario</h1>
+                            <div class="d-inline-block w-25">
+                                <div class="input-group">
+                                    <input type="text" name="search_user" id="search_user" class="form-control" placeholder="Nombre de Usuario">
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-success" onclick="getMessages();">Buscar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#message-modal">Nuevo Mensaje</button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="overflow-auto">
+                            <table id="messages_table" class="table" >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Usuario1</th>
+                                        <th>Usuario2</th>
+                                        <th>Mensaje</th>
+                                        <th>Documento</th>
+                                        <th>Fecha de envio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="message-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="message-modal-title" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form method="POST" id="message_form" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="message-modal-title">Mensaje</h5>
+                                <button class="close" data-dismiss="modal" aria-label="Close" id="modal-close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group form-row">
+                                    <label for="user1_id">Usuario1:</label>
+                                    <select name="user1_id" id="user1_id" class="my-1 mr-2">
+                                    </select>
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="user2_id">Usuario2:</label>
+                                    <select name="user2_id" id="user2_id" class="my-1 mr-2">
+                                    </select>
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="message">Mensaje</label>
+                                    <textarea name="message" id="message" cols="30" rows="4" class="form-control" placeholder="Mensaje" required></textarea>
+                                </div>
+                                <div class="form-group form-row">
+                                    <label for="user2_id">Archivo:</label>
+                                    <input type="file" name="file" id="file" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between align-items-center">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success" id="send_message">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </main>
+
+        <footer>
+        </footer>
+    </div>
+</body>
+
+</html>
